@@ -35,6 +35,8 @@ export * from "./switchboard";
 export * from "./elfa_ai";
 export * from "./debridge";
 export * from "./fluxbeam";
+export * from "./wormhole";
+export * from "./okx-dex";
 
 import type { SolanaAgentKit } from "../agent";
 import {
@@ -158,7 +160,17 @@ import {
   ElfaGetTopMentionsTool,
   ElfaAccountSmartStatsTool,
   SolanaFluxbeamCreatePoolTool,
+  CctpTransferTool,
+  TokenTransferTool,
+  CreateWrappedTokenTool,
+  GetWormholeSupportedChainsTool,
 } from "./index";
+import {
+  SolanaCancelLimitOrdersTool,
+  SolanaCreateLimitOrderTool,
+  SolanaGetOpenOrdersTool,
+  SolanaGetOrderHistoryTool,
+} from "./jupiter";
 
 export function createSolanaTools(solanaKit: SolanaAgentKit) {
   return [
@@ -282,5 +294,13 @@ export function createSolanaTools(solanaKit: SolanaAgentKit) {
     new ElfaGetTopMentionsTool(solanaKit),
     new ElfaAccountSmartStatsTool(solanaKit),
     new SolanaFluxbeamCreatePoolTool(solanaKit),
+    new CctpTransferTool(solanaKit),
+    new TokenTransferTool(solanaKit),
+    new CreateWrappedTokenTool(solanaKit),
+    new GetWormholeSupportedChainsTool(solanaKit),
+    new SolanaCreateLimitOrderTool(solanaKit),
+    new SolanaCancelLimitOrdersTool(solanaKit),
+    new SolanaGetOpenOrdersTool(solanaKit),
+    new SolanaGetOrderHistoryTool(solanaKit),
   ];
 }
